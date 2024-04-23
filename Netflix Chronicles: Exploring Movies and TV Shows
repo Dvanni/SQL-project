@@ -1,0 +1,67 @@
+--Dataset: Netflix Chronicles: Exploring Movies and TV Shows
+--Source: Kaggle https://www.kaggle.com/datasets/nayanack/netflix/data
+--Queried using: MySQL
+
+SELECT * FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows;
+
+--What is the name of the country the movie was produced in? 
+SELECT 
+    country, title
+    FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+Limit 10;
+
+--What are the top 10 Rated movies of 2021?
+SELECT * FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+WHERE RELEASE YEAR = 2021
+LIMIT 10;
+  
+ --What Movie has the longest runtime? Provide Director and Rating
+SELECT 
+    Title,
+    director, 
+    duration_ms
+FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+ORDER BY duration_ms DESC
+LIMIT 1;
+
+--What year had the most releases and was rated PG-13?
+SELECT * FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+Group by RATING = PG-13
+ORDERBY YEAR >= 1
+   
+--Create column combining RATING and DIRECTOR
+ALTER TABLE BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+ADD DIRECTOR RATING;
+
+--Add data for GENRE column
+UPDATE BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+WHERE id = 4;
+
+--Count the most popular TV SHOW in this dataset most represented in the top of 2021.
+SELECT 
+    COUNT(TV SHOW) AS total,
+    FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows AS TV SHOWS
+LEFT JOIN BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows AS TV SHOW
+ON RELEASE YEAR = 2021
+GROUP BY TV SHOW
+ORDER BY total DESC;
+
+--What director released the longest TV SHOW?
+SELECT 
+    director,
+    duration_ms
+FROM BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+ORDER BY duration_ms DESC
+LIMIT 1;
+
+--Create a table with the Rating rankings for Director.
+CREATE TABLE BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows (
+    id integer PRIMARY KEY,
+    RANKINGS varchar NOT NULL,
+    Director integer NOT NULL );
+
+--Count the Movies where Rating is R.
+SELECT MOVIES from BIT_DB.Netflix Chronicles: Exploring Movies and TV Shows
+WHERE MOVIES = R
+LIMIT 10;
+
