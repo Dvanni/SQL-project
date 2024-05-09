@@ -1,0 +1,6 @@
+Count number of videos is the table and rename as Count_of_Videos
+
+
+
+SELECT COUNT(video_id) AS Count_of_Video
+FROM youtube_videos
