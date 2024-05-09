@@ -1,0 +1,10 @@
+Chocolate
+
+I love chocolate and only want delicious baked goods that have chocolate in them!
+
+Write a Query to return bakery items that contain the word "Chocolate".
+
+
+SELECT Product_Name
+FROM bakery_items
+WHERE Product_Name like '%Chocolate%';
